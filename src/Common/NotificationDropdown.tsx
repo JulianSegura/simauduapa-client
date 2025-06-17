@@ -23,17 +23,17 @@ const NotificationDropdown = () => {
                         <div className="p-3 border-bottom border-bottom-dashed">
                             <Row className="align-items-center">
                                 <Col>
-                                    <h6 className="mb-0 fs-lg fw-semibold"> Notifications <span className="badge bg-danger-subtle text-danger fs-sm notification-badge"> 4</span></h6>
-                                    <p className="fs-md text-muted mt-1 mb-0">You have <span className="fw-semibold notification-unread">3</span> unread messages</p>
+                                    <h6 className="mb-0 fs-lg fw-semibold"> Notificaciones <span className="badge bg-danger-subtle text-danger fs-sm notification-badge"> 4</span></h6>
+                                    <p className="fs-md text-muted mt-1 mb-0">Tienes <span className="fw-semibold notification-unread">3</span> mensajes sin leer</p>
                                 </Col>
                                 <Dropdown className="col-auto">
-                                    <Dropdown.Toggle as="a" href="/" data-bs-toggle="dropdown" className="link-secondary fs-md bg-transparent border-0 arrow-none">
+                                    <Dropdown.Toggle as="a" href="#" data-bs-toggle="dropdown" className="link-secondary fs-md bg-transparent border-0 arrow-none">
                                         <i className="bi bi-three-dots-vertical"></i>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
-                                        <li><Dropdown.Item href="/#">All Clear</Dropdown.Item></li>
-                                        <li><Dropdown.Item href="/#">Mark all as read</Dropdown.Item></li>
-                                        <li><Dropdown.Item href="/#">Archive All</Dropdown.Item></li>
+                                        <li><Dropdown.Item href="/#">Marcar todas como leidas</Dropdown.Item></li>
+                                        <li><Dropdown.Item href="/#">Archivar todas</Dropdown.Item></li>
+                                        <li><Dropdown.Item href="/#">Eliminar todas</Dropdown.Item></li>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Row>
