@@ -1,0 +1,251 @@
+body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+            line-height: 1.5;
+            color: #374151; /* gray-700 */
+            background-color: #f9fafb; /* gray-50 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        #root {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /*
+        ============================================
+        -- Contenedor Principal del Login
+        ============================================
+        */
+        .login-container {
+            display: grid;
+            grid-template-columns: 1fr; /* Una columna por defecto */
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* En pantallas medianas y grandes, se divide en dos columnas */
+        @media (min-width: 768px) {
+            .login-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /*
+        ============================================
+        -- Panel Izquierdo (Logo)
+        ============================================
+        */
+        .left-panel {
+            /* Fondo actualizado a un tono más neutro y profesional */
+            background-color: #fff; /* Azul grisáceo claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        
+        /* La imagen ahora cubrirá todo el panel */
+        .left-panel img {
+            width: 100%;
+            height: 90%;
+            object-fit: cover;
+        }
+        
+        /* Ocultamos el panel izquierdo en pantallas pequeñas */
+        @media (max-width: 767px) {
+            .left-panel {
+                display: none;
+            }
+        }
+
+
+        /*
+        ============================================
+        -- Panel Derecho (Formulario)
+        ============================================
+        */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-color: #ffffff;
+            box-sizing: border-box;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 26rem; /* 416px */
+            background-color: #fff;
+        }
+
+        .card-content {
+            padding: 1.5rem; /* 24px */
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem; /* 24px */
+            font-weight: 600;
+            text-align: center;
+            margin: 0 0 0.5rem 0;
+            color: #111827; /* gray-900 */
+        }
+
+        .card-content .subtitle {
+            font-size: 0.875rem; /* 14px */
+            text-align: center;
+            color: #6b7280; /* gray-500 */
+            margin-bottom: 2rem; /* 32px */
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem; /* 20px */
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151; /* gray-700 */
+            margin-bottom: 0.5rem; /* 8px */
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem; /* 12px 16px */
+            border: 1px solid #d1d5db; /* gray-300 */
+            border-radius: 0.5rem; /* 8px */
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #022F5A; /* Color primario UAPA */
+            box-shadow: 0 0 0 2px rgba(2, 47, 90, 0.2);
+        }
+
+        .password-input-wrapper {
+            position: relative;
+        }
+
+        .password-input-wrapper .toggle-password-visibility {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #9ca3af; /* gray-400 */
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem; /* 24px */
+            font-size: 0.875rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            height: 1rem;
+            width: 1rem;
+            accent-color: #022F5A;
+            margin-right: 0.5rem;
+        }
+
+        .forgot-password a {
+            color: #022F5A;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .main-button {
+            width: 100%;
+            padding: 0.875rem 1rem; /* 14px 16px */
+            border-radius: 0.5rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #009B3A; /* Verde de UAPA */
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .main-button:hover {
+            background-color: #007A2E; /* Verde más oscuro */
+        }
+
+        .signin-divider {
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            position: relative;
+        }
+        .signin-divider::before,
+        .signin-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: #e5e7eb; /* gray-200 */
+        }
+        .signin-divider::before { left: 0; }
+        .signin-divider::after { right: 0; }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem; /* 24px */
+            margin-bottom: 2rem;
+        }
+
+        .social-button {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border: 1px solid #e5e7eb;
+            background-color: #fff;
+            color: #374151;
+            cursor: pointer;
+            font-size: 1.25rem;
+            transition: background-color 0.2s ease-in-out, color 0.2s;
+        }
+
+        .social-button:hover {
+            background-color: #f3f4f6; /* gray-100 */
+        }
+        
+        .signup-text {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .signup-text a {
+            color: #022F5A;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
