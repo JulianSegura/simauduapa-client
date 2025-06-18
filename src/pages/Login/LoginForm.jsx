@@ -1,12 +1,11 @@
 import React from "react";
-import { FaFacebookF, FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
 
 const LoginForm = () => {
     return (
         <div className="login-container">
             {/* Panel Izquierdo*/}
             <div className="left-panel">
-                 <img src="../../public/logo-uapa-social.webp"/>
+                 <img src="../../../public/logo-uapa-social.webp"/>
             </div>
 
             {/* Panel Derecho */}
