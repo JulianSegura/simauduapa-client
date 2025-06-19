@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 
 const Ecommerce = () => {
-    document.title = "Dashboard | Steex Admin & Dashboard Template";
+    document.title = "SIMAUD | UAPA";
 
     return (
         <React.Fragment>

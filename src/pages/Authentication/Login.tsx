@@ -80,7 +80,7 @@ const Signin = (props: any) => {
             }, 3000);
         }
     }, [dispatch, errorMsg]);
-    document.title = "Login | Steex Admin & Dashboard Template";
+    document.title = "SIMAUD | Login";
     return (
         <ParticlesAuth>
             <React.Fragment>
@@ -159,6 +159,7 @@ const Signin = (props: any) => {
                                     </div>
 
                                 </Form>
+                                
 
                                 <div className="text-center mt-5">
                                     <p className="mb-0">Don't have an account ? <Link to="/register" className="fw-semibold text-secondary text-decoration-underline"> SignUp</Link> </p>

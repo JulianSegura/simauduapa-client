@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 //import images
-import avatar1 from "assets/images/users/32/avatar-1.jpg";
+import avatar1 from "assets/images/users/32/user-dummy-img.jpg";
 import { createSelector } from 'reselect';
 
 const ProfileDropdown = () => {

@@ -375,7 +375,7 @@ const Navdata = () => {
             id: "googleMaps",
             label: "Cerrar sesion",
             icon: "ph-map-trifold",
-            link: "#",
+            link: "/logout",
         },
        
 

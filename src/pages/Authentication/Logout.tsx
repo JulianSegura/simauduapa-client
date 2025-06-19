@@ -10,7 +10,7 @@ import { createSelector } from "reselect";
 
 const Logout = () => {
 
-    document.title = "Log Out | Steex Admin & Dashboard Template";
+    document.title = "SIMAUD | Logout";
 
     const dispatch = useDispatch<any>();
 
@@ -28,7 +28,7 @@ const Logout = () => {
     }, [dispatch]);
 
     if (isUserLogout) {
-        return <Navigate to="/login" />;
+        return <Navigate to="../../login" />;
     }
 
     return <React.Fragment></React.Fragment>;
