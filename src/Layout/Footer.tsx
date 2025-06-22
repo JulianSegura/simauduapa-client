@@ -8,13 +8,13 @@ const Footer = () => {
                 <Container fluid>
                     <Row>
                         <Col sm={6}>
-                            {new Date().getFullYear()} © Steex.
+                            {new Date().getFullYear()} © UAPA
                         </Col>
-                        <Col sm={6}>
+                        {/* <Col sm={6}>
                             <div className="text-sm-end d-none d-sm-block">
                                 Design & Develop by Themesbrand
                             </div>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Container>
             </footer>

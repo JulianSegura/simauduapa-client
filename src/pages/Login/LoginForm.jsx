@@ -1,5 +1,6 @@
 import React from "react";
 import './Login.css'
+import withRouter from 'Common/withRouter';
 
 const LoginForm = () => {
     return (
@@ -23,7 +24,7 @@ const LoginForm = () => {
                             <div className="form-group">
                                 <label htmlFor="password" className="form-label">Contraseña</label>
                                 <div className="password-input-wrapper">
-                                    <input id="password" type="password" defaultValue="*****" required className="form-input" />
+                                    <input id="password" type="password" defaultValue="123456" required className="form-input" />
                                     <span className="toggle-password-visibility">
                                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -48,4 +49,4 @@ const LoginForm = () => {
     );
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

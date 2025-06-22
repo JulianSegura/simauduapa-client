@@ -69,7 +69,7 @@ const Header = () => {
                                     <img src={logosm} alt="" height="22" />
                                 </span>
                                 <span className="logo-lg">
-                                    <img src={logolight} alt="" height="25" />
+                                    <img src={logolight} alt="" height="50" />
                                 </span>
                             </Link>
                         </div>

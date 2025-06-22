@@ -24,7 +24,7 @@ axios.interceptors.response.use(
         message = "Internal Server Error";
         break;
       case 401:
-        message = "Invalid credentials";
+        message = "Credenciales invalidas";
         break;
       case 404:
         message = "Sorry! the data you are looking for could not be found";
