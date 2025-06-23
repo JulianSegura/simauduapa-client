@@ -262,7 +262,7 @@ const Navdata = () => {
                 {
                     id: "listview",
                     label: "Usuarios",
-                    link: "#",
+                    link: "/register",
                     parentId: "invoice",
                 },
                 {

@@ -15,7 +15,7 @@ import { createSelector } from 'reselect';
 
 const Register = () => {
 
-    document.title = " Register | Steex Admin & Dashboard Template";
+    document.title = " SIMAUD | Registro Usuarios";
 
     const navigate = useNavigate();
     const dispatch = useDispatch<any>();
