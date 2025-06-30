@@ -8,6 +8,7 @@ import Logout from "pages/Authentication/Logout";
 import Register from "pages/Authentication/Register";
 import ForgotPassword from "pages/Authentication/ForgotPassword";
 import UserProfile from "pages/Authentication/user-profile";
+import UsersListView from "pages/Authentication/UsersList";
 
 const authProtectedRoutes = [
     // Dashboard
@@ -20,6 +21,7 @@ const authProtectedRoutes = [
     // this route should be at the end of all other routes
     // eslint-disable-next-line react/display-name
     { path: "/", exact: true, name: "Navigate", component: <Navigate to="/dashboard" /> },
+    { path: "/users", name: "UsersList", component: <UsersListView /> },
 ];
 
 const publicRoutes = [
@@ -27,7 +29,7 @@ const publicRoutes = [
     { path: "/login", name: "Login", component: <Login /> },
     { path: "/logout", name: "Logout", component: <Logout /> },
     { path: "/register", name: "Register", component: <Register /> },
-    { path: "/forgot-password", name: "ForgotPassword", component: <ForgotPassword /> },
+    { path: "/forgot-password", name: "ForgotPassword", component: <ForgotPassword /> }
 ];
 
 export { authProtectedRoutes, publicRoutes };

@@ -27,7 +27,7 @@ const Navdata = () => {
     const [isMaps, setIsMaps] = useState(false);
 
     const [isOrder, setIsOrder] = useState(false);
-    const [isInvoice, setIsInvoice] = useState(false);
+    const [isAdminSys, setIsAdminSys] = useState(false);
     const [isShipping, setIsShipping] = useState(false);
     const [isLocalization, setIsLocalization] = useState(false);
     const [isAuth, setIsAuth] = useState(false);
@@ -70,8 +70,8 @@ const Navdata = () => {
         if (iscurrentState !== 'Learning') {
             setIsLearning(false);
         }
-        if (iscurrentState !== 'Invoice') {
-            setIsInvoice(false);
+        if (iscurrentState !== 'AdminSys') {
+            setIsAdminSys(false);
         }
         if (iscurrentState !== 'Support Ticket') {
             setIsSupportTicket(false);
@@ -136,7 +136,7 @@ const Navdata = () => {
         isEcommerce,
         isSupportTicket,
         isOrder,
-        isInvoice,
+        isAdminSys,
         isShipping,
         isLocalization,
         isAuth,
@@ -247,47 +247,47 @@ const Navdata = () => {
             ],
         },
         {
-            id: "invoice",
+            id: "AdminSys",
             label: "Administracion del sistema",
             icon: "ph-file-text",
             link: "/#",
             click: function (e: any) {
                 e.preventDefault();
-                setIsInvoice(!isInvoice);
-                setIscurrentState('Invoice');
+                setIsAdminSys(!isAdminSys);
+                setIscurrentState('AdminSys');
                 updateIconSidebar(e);
             },
-            stateVariables: isInvoice,
+            stateVariables: isAdminSys,
             subItems: [
                 {
-                    id: "listview",
+                    id: "userslist",
                     label: "Usuarios",
-                    link: "/register",
-                    parentId: "invoice",
+                    link: "/users",
+                    parentId: "AdminSys",
                 },
                 {
                     id: "overview",
                     label: "Roles y permisos",
                     link: "#",
-                    parentId: "invoice",
+                    parentId: "AdminSys",
                 },
                 {
                     id: "createinvoice",
                     label: "Parametros del sistema",
                     link: "#",
-                    parentId: "invoice",
+                    parentId: "AdminSys",
                 },
                 {
                     id: "createinvoice",
                     label: "Logs de actividad",
                     link: "#",
-                    parentId: "invoice",
+                    parentId: "AdminSys",
                 },
                 {
                     id: "createinvoice",
                     label: "Plantillas",
                     link: "#",
-                    parentId: "invoice",
+                    parentId: "AdminSys",
                 },
             ],
         },
