@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
 
-const Ecommerce = () => {
+const Dashboard = () => {
     document.title = "SIMAUD | UAPA";
 
     return (
@@ -15,4 +15,4 @@ const Ecommerce = () => {
     )
 }
 
-export default Ecommerce;
+export default Dashboard;

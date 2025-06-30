@@ -521,8 +521,8 @@ const UsersListView = () => {
                         </Row>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" className="btn btn-ghost-danger" onClick={handleCloseInvoice}><i className="bi bi-x-lg align-baseline me-1"></i> Close </Button>
-                        <Button type="submit" variant="primary" id="add-btn">{editInvoice ? "update" : "Add"}</Button>
+                        {/* <Button variant="secondary" className="btn btn-ghost-danger" onClick={handleCloseInvoice}><i className="bi bi-x-lg align-baseline me-1"></i> Cerrar </Button> */}
+                        <Button type="submit" variant="primary" id="add-btn">{editInvoice ? "update" : "Guardar"}</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>
