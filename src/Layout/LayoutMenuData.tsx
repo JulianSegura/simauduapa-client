@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Navdata = () => {
     //state data
     const [isDashboard, setIsDashboard] = useState(false);
-    const [isEcommerce, setIsEcommerce] = useState(false);
+    const [isContracts, setIsContracts] = useState(false);
     const [isLearning, setIsLearning] = useState(false);
     const [isCourses, setIsCourses] = useState(false);
     const [isStudents, setIsStudents] = useState(false);
@@ -64,8 +64,8 @@ const Navdata = () => {
         if (iscurrentState !== 'Dashboard') {
             setIsDashboard(false);
         }
-        if (iscurrentState !== 'Ecommerce') {
-            setIsEcommerce(false);
+        if (iscurrentState !== 'Contracts') {
+            setIsContracts(false);
         }
         if (iscurrentState !== 'Learning') {
             setIsLearning(false);
@@ -133,7 +133,7 @@ const Navdata = () => {
         isDashboard,
         isLearning,
         isRealEstate,
-        isEcommerce,
+        isContracts,
         isSupportTicket,
         isOrder,
         isAdminSys,
@@ -174,24 +174,24 @@ const Navdata = () => {
         },
        
         {
-            id: "ecommerce",
-            label: "Gestion de contrato",
+            id: "contracts",
+            label: "Gestion de contratos",
             icon: "ph-storefront",
             link: "#",
             click: function (e: any) {
                 e.preventDefault();
-                setIsEcommerce(!isEcommerce);
-                setIscurrentState('Ecommerce');
+                setIsContracts(!isContracts);
+                setIscurrentState('Contracts');
                 updateIconSidebar(e);
             },
-            stateVariables: isEcommerce,
+            stateVariables: isContracts,
             subItems: [
-                { id: 1, label: "Nuevo contrato", link: "#", parentId: "ecommerce" },
-                { id: 2, label: "Consultar contrato", link: "#", parentId: "ecommerce" },
-                { id: 2, label: "Versiones de contrato", link: "#", parentId: "ecommerce" },
-                { id: 3, label: "Renovar/Anular contrato", link: "#", parentId: "ecommerce" },
-                { id: 4, label: "Firmas electronica", link: "#", parentId: "ecommerce" },
-                { id: 5, label: "Documentos adjuntos", link: "#", parentId: "ecommerce" },
+                { id: 1, label: "Listado de contratos", link: "/contracts", parentId: "contracts" },
+                { id: 2, label: "Nuevo contrato", link: "#", parentId: "contracts" },
+                { id: 3, label: "Versiones de contrato", link: "#", parentId: "contracts" },
+                { id: 4, label: "Renovar/Anular contrato", link: "#", parentId: "contracts" },
+                { id: 5, label: "Firmas electronica", link: "#", parentId: "contracts" },
+                { id: 6, label: "Documentos adjuntos", link: "#", parentId: "contracts" },
                
             ],
         },

@@ -20,9 +20,9 @@ import * as Yup from "yup";
 import Flatpicker from "react-flatpickr";
 import moment, { now } from "moment";
 
-const UsersListView = () => {
+const ContractsListView = () => {
 
-    document.title = "SIMAUD | Lista De Usuarios";
+    document.title = "SIMAUD | Lista De Contratos";
 
     const dispatch = useDispatch<any>();
 
@@ -40,17 +40,17 @@ const UsersListView = () => {
     // }, [dispatch]);
 
     const [listView, setListView] = useState<any>();
-    const [invoiceslists, setInvoiceslists] = useState<any>(null);
-    const [addUser, setAddUser] = useState<boolean>(false);
+    const [contractslists, setcontractslists] = useState<any>(null);
+    const [addUser, setAddContract] = useState<boolean>(false);
     const [editUser, setEditUser] = useState<boolean>(false);
     const [show, setShow] = useState<boolean>(false);
     const [edit, setEdit] = useState<any>();
     //add
-    const handleCloseInvoice = () => setAddUser(false);
-    const handleShowInvoice = () => setAddUser(true);
+    const handleCloseContract = () => setAddContract(false);
+    const handleShowContract = () => setAddContract(true);
     //edit
     const handleEdit = (item: any) => {
-        setAddUser(true);
+        setAddContract(true);
         setEditUser(true);
         setEdit({
             id: item.id,
@@ -73,7 +73,7 @@ const UsersListView = () => {
         // }
     }
     // delete 
-    const handleDeleteShow = (ele: any) => { setShow(true); setInvoiceslists(ele) };
+    const handleDeleteShow = (ele: any) => { setShow(true); setcontractslists(ele) };
     const handleDeleteClose = () => setShow(false);
 
     //delete modal
@@ -213,11 +213,11 @@ const UsersListView = () => {
             status: (edit && edit.status) || ''
         },
         validationSchema: Yup.object({
-            customer: Yup.string().required("Ingrese un nombre"),
+            title: Yup.string().required("Ingrese un titulo"),
             email: Yup.string().email().matches(/^(?!.*@[^,]*,)/).required("Ingrese un correo electronico"),
-            createDate: Yup.string().required("Please Enter Your Create Date"),
-            dueDate: Yup.string().required("Please Enter Your Due Date"),
-            status: Yup.string().required("PSeleccione un perfil"),
+            createDate: Yup.string().required("Seleccione la fecha de inicio"),
+            dueDate: Yup.string().required("Seleccione la fecha de vencimiento"),
+            type: Yup.string().required("Seleccione el tipo de contrato"),
             invoice_amount: Yup.string().required("Please Enter Your Location"),
 
         }),
@@ -251,11 +251,11 @@ const UsersListView = () => {
                 formik.resetForm();
             }
             if (values === null) {
-                handleShowInvoice();
+                handleShowContract();
             } else {
                 setEdit(null)
                 setEditUser(false)
-                handleCloseInvoice();
+                handleCloseContract();
             }
         }
     });
@@ -264,7 +264,7 @@ const UsersListView = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>
-                    <BreadCrumb title="Listado De Usuarios" pageTitle="Usuarios" />
+                    <BreadCrumb title="Listado De Contratos" pageTitle="Contratos" />
                     {/* <Row>
                         <Col xl={7}>
                             <Card>
@@ -339,7 +339,7 @@ const UsersListView = () => {
                             </Card>
                         </Col>
                     </Row> */}
-                    <Row id="usersList">
+                    <Row id="contractList">
                         <Col lg={12}>
                             <Card>
                                 <Card.Header>
@@ -356,7 +356,7 @@ const UsersListView = () => {
                                         <Col className="col-md-auto">
                                             <div className="hstack gap-2">
                                                 <Button className="btn btn-subtle-danger d-none" id="remove-actions"><i className="ri-delete-bin-2-line"></i></Button>
-                                                <Button variant="secondary" onClick={handleShowInvoice}><i className="bi bi-plus-circle align-baseline me-1"></i> Nuevo Usuario</Button>
+                                                <Button variant="secondary" onClick={handleShowContract}><i className="bi bi-plus-circle align-baseline me-1"></i> Nuevo Contrato</Button>
                                                 {/* <Link to="/apps-invoices-create" className="btn btn-secondary"><i className="bi bi-plus-circle align-baseline me-1"></i> Add Invoice</Link> */}
                                             </div>
                                         </Col>
@@ -398,53 +398,61 @@ const UsersListView = () => {
             </div>
             {/* <DeleteModal show={show} handleClose={handleDeleteClose} deleteModalFunction={deleteModalFunction} /> */}
 
-            <Modal show={addUser} onHide={handleCloseInvoice}>
+            <Modal show={addUser} onHide={handleCloseContract}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{editUser ? "update Invoice List" : "Nuevo Usuario"}</Modal.Title>
+                    <Modal.Title>{editUser ? "Actualizar Contrato" : "Nuevo Contrato"}</Modal.Title>
                 </Modal.Header>
                 <Form autoComplete="off" onSubmit={formik.handleSubmit}>
                     <Modal.Body>
                         <div className="mb-3">
-                            <Form.Label htmlFor="username">Nombre Completo<span className="text-danger">*</span></Form.Label>
+                            <Form.Label htmlFor="title">Titulo del contrato<span className="text-danger">*</span></Form.Label>
                             <Form.Control
                                 type="text"
-                                id="username"
-                                name="username"
-                                placeholder="Nombre"
+                                id="title"
+                                name="title"
+                                placeholder="Titulo"
                                 value={formik.values.username}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                isInvalid={!!formik.errors.customer}
+                                isInvalid={!!formik.errors.title}
                             />
-                            {formik.errors.customer && formik.touched.customer ? (
-                                <Form.Control.Feedback type="invalid">{formik.errors.customer}</Form.Control.Feedback>
+                            {formik.errors.title && formik.touched.title ? (
+                                <Form.Control.Feedback type="invalid">{formik.errors.title}</Form.Control.Feedback>
                             ) : null}
                         </div>
                         <div className="mb-3">
-                            <Form.Label htmlFor="email">Email<span className="text-danger">*</span></Form.Label>
-                            <Form.Control
-                                type="text"
-                                id="email"
-                                name="email"
-                                placeholder="Correo Electronico"
-                                value={formik.values.email}
+                            <Form.Label htmlFor="type" >Tipo De Contrato<span className="text-danger">*</span></Form.Label>
+                            <Form.Select
+                                id="type"
+                                name="type"
+                                //placeholder="Enter Status"
+                                value={formik.values.profile}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                isInvalid={!!formik.errors.email}
-                            />
-                            {formik.errors.email && formik.touched.email ? (
-                                <Form.Control.Feedback type="invalid">{formik.errors.email}</Form.Control.Feedback>
+                                isInvalid={!!formik.errors.type}
+                            >
+                                <option>Seleccione</option>
+                                <option value="Usuario Legal">Acuerdo de confidencialidad (NDA)</option>
+                                <option value="Unpaid">Contrato de prestación de servicios profesionales</option>
+                                <option value="Unpaid">Contrato de consultoría</option>
+                                <option value="Unpaid">Contrato de licencia de uso de software</option>
+                                <option value="Unpaid">Contrato de suministro de bienes o servicios</option>
+                                <option value="Unpaid">Contrato de cátedra o docencia temporal</option>
+                            </Form.Select>
+                            {formik.errors.type && formik.touched.type ? (
+                                <Form.Control.Feedback type="invalid">{formik.errors.type}</Form.Control.Feedback>
                             ) : null}
                         </div>
+                        
                         <Row>
-                            {/* <Col lg={6}>
+                            <Col lg={6}>
                                 <div className="mb-3">
-                                    <Form.Label htmlFor="create-date-input" >Create Date<span className="text-danger">*</span></Form.Label>
+                                    <Form.Label htmlFor="create-date-input" >fecha Inicio<span className="text-danger">*</span></Form.Label>
                                     <Flatpicker
                                         className="form-control"
                                         id="create-date-input"
                                         name="createDate"
-                                        placeholder="Select date"
+                                        placeholder="Seleccione Fecha"
                                         options={{
                                             mode: "single",
                                             dateFormat: 'd M, Y',
@@ -456,15 +464,15 @@ const UsersListView = () => {
                                         <Form.Control.Feedback type="invalid" className="d-block">{formik.errors.createDate}</Form.Control.Feedback>
                                     ) : null}
                                 </div>
-                            </Col> */}
-                            {/* <Col lg={6}>
+                            </Col>
+                            <Col lg={6}>
                                 <div className="mb-3">
-                                    <Form.Label htmlFor="due-date-input" >Due Date<span className="text-danger">*</span></Form.Label>
+                                    <Form.Label htmlFor="due-date-input" >Fecha Fin<span className="text-danger">*</span></Form.Label>
                                     <Flatpicker
                                         className="form-control"
-                                        id="create-date-input"
+                                        id="due-date-input"
                                         name="dueDate"
-                                        placeholder="Select date"
+                                        placeholder="Seleccione Fecha"
                                         options={{
                                             mode: "single",
                                             dateFormat: 'd M, Y',
@@ -476,7 +484,23 @@ const UsersListView = () => {
                                         <Form.Control.Feedback type="invalid" className="d-block">{formik.errors.dueDate}</Form.Control.Feedback>
                                     ) : null}
                                 </div>
-                            </Col> */}
+                            </Col>
+                            <div className="mb-3">
+                                <Form.Label htmlFor="notes">Notas Adicionales<span className="text-danger"></span></Form.Label>
+                                <Form.Control
+                                    type="text-area"
+                                    id="notes"
+                                    name="notes"
+                                    placeholder=""
+                                    value={formik.values.notes}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    // isInvalid={!!formik.errors.notes}
+                                />
+                                {/* {formik.errors.notes && formik.touched.notes ? (
+                                    <Form.Control.Feedback type="invalid">{formik.errors.notes}</Form.Control.Feedback>
+                                ) : null} */}
+                            </div>
                             {/* <Col lg={6}>
                                 <div className="mb-3">
                                     <Form.Label htmlFor="Amount-input" >Amount<span className="text-danger">*</span></Form.Label>
@@ -495,7 +519,7 @@ const UsersListView = () => {
                                     ) : null}
                                 </div>
                             </Col> */}
-                            <Col lg={6}>
+                            {/* <Col lg={6}>
                                 <div className="mb-3">
                                     <Form.Label htmlFor="profile" >Perfil<span className="text-danger">*</span></Form.Label>
                                     <Form.Select
@@ -517,12 +541,12 @@ const UsersListView = () => {
                                         <Form.Control.Feedback type="invalid">{formik.errors.status}</Form.Control.Feedback>
                                     ) : null}
                                 </div>
-                            </Col>
+                            </Col> */}
                         </Row>
                     </Modal.Body>
                     <Modal.Footer>
                         {/* <Button variant="secondary" className="btn btn-ghost-danger" onClick={handleCloseInvoice}><i className="bi bi-x-lg align-baseline me-1"></i> Cerrar </Button> */}
-                        <Button type="submit" onClick={handleCloseInvoice} variant="primary" id="add-btn">{editUser ? "update" : "Guardar"}</Button>
+                        <Button type="submit" onClick={handleCloseContract} variant="primary" id="add-btn">{editUser ? "update" : "Guardar"}</Button>
                     </Modal.Footer>
                 </Form>
             </Modal>
@@ -531,4 +555,4 @@ const UsersListView = () => {
     );
 }
 
-export default  UsersListView;
+export default ContractsListView;

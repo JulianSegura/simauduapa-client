@@ -13,6 +13,9 @@ import ForgotPassword from "pages/Authentication/ForgotPassword";
 import UsersList from "pages/Admin/Users/UsersList";
 import UserProfile from "pages/Admin/Users/user-profile";
 
+//Contracts
+import ContractsList from "pages/Contracts/List";
+
 const authProtectedRoutes = [
     // Dashboard
     { path: "/dashboard", component: <Dashboard /> },
@@ -26,6 +29,9 @@ const authProtectedRoutes = [
     // { path: "/register", name: "Register", component: <Register /> },
     // this route should be at the end of all other routes
     // eslint-disable-next-line react/display-name
+
+    //contracts
+    { path: "/contracts", name: "ContractsList", component: <ContractsList /> },
 ];
 
 const publicRoutes = [
